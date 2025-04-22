@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Капица и Нобелевская премия</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform: translateX(100%);
+      transition: transform 1s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .slide.active {
+      transform: translateX(0);
+      z-index: 1;
+    }
+    .slide h1, .slide h2 {
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+    .slide p {
+      max-width: 800px;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    }
+    .nav-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      background: #00796b;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="slide active" style="background: url(пы.jpg) center/cover no-repeat;">
+    <h1>Кто такой Пётр Капица?</h1>
+    <p>Пётр Леонидович Капица — гениальный физик и нобелевский лауреат, прославившийся работами в области физики низких температур. Он оставил глубокий след в науке XX века благодаря смелым идеям, независимому мышлению и настоящему служению истине.</p>
+  </div>
+
+  <div class="slide" style="background: url(й.jpg) center/cover no-repeat;">
+    <h2>Ранние годы</h2>
+    <p>Родился в Кронштадте в 1894 году. С ранних лет проявлял интерес к технике и физике. Учился в Петербургском политехническом институте. Его путь в науку начался под влиянием крупнейших умов своего времени.</p>
+  </div>
+
+  <div class="slide" style="background: url(в.jpg) center/cover no-repeat;">
+    <h2>Работа в Кембридже</h2>
+    <p>В Кембридже Капица работал с Эрнестом Резерфордом. Здесь он изучал поведение металлов в магнитных полях и начал эксперименты с криогенной техникой. Его открытия стали основой физики низких температур.</p>
+  </div>
+
+  <div class="slide" style="background: url(download.jpg) center/cover no-repeat;">
+    <h2>Возвращение в СССР</h2>
+    <p>Несмотря на риски, Капица вернулся в СССР в 1934 году. Он основал Институт физических проблем и продолжил исследования. Даже в условиях репрессий он сохранял научную и личную независимость.</p>
+  </div>
+
+  <div class="slide" style="background: url(веш.png) center/cover no-repeat;">
+    <h2>Открытие сверхтекучести</h2>
+    <p>В 1937 году Капица открыл сверхтекучесть гелия II — состояние вещества, при котором оно теряет внутреннее трение. Это открытие потрясло научный мир и стало краеугольным камнем квантовой физики.</p>
+  </div>
+
+  <div class="slide" style="background: url(г.jpg) center/cover no-repeat;">
+    <h2>Нобелевская премия</h2>
+    <p>В 1978 году Капице вручили Нобелевскую премию по физике. Это стало международным признанием его гениальности и вклада в науку, несмотря на изоляцию и сложную политическую обстановку.</p>
+  </div>
+
+  <div class="slide" style="background: url(download.jpg) center/cover no-repeat;">
+    <h2>Личность и убеждения</h2>
+    <p>Капица был прямолинейным, свободомыслящим учёным, не боялся критиковать власть и отстаивал гуманизм в науке. Он писал письма Сталину, отстаивал права коллег и выступал за международный диалог.</p>
+  </div>
+
+  <div class="slide" style="background: url(images.jpg) center/cover no-repeat;">
+    <h2>Наследие</h2>
+    <p>После смерти Капицы его труды продолжают изучать. Он стал символом честности и научного мужества. Его жизнь — вдохновение для новых поколений исследователей, стремящихся к истине.</p>
+  </div>
+
+  <div class="nav-buttons">
+    <button onclick="prevSlide()">Назад</button>
+    <button onclick="nextSlide()">Вперёд</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((s, i) => s.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      if (current < slides.length - 1) {
+        current++;
+        showSlide(current);
+      }
+    }
+
+    function prevSlide() {
+      if (current > 0) {
+        current--;
+        showSlide(current);
+      }
+    }
+  </script>
+</body>
+</html>
